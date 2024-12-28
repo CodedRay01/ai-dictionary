@@ -1,0 +1,386 @@
+/* 🌈 Advanced CSS with Modern Design Principles */
+
+:root {
+    /* Color Palette */
+    --primary-color: #6a11cb;
+    --secondary-color: #2575fc;
+    --accent-color: #ff6b6b;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --background-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    
+    /* Typography */
+    --font-primary: 'Poppins', sans-serif;
+    --font-size-base: 16px;
+    
+    /* Spacing */
+    --spacing-small: 10px;
+    --spacing-medium: 20px;
+    --spacing-large: 30px;
+    
+    /* Border Radius */
+    --border-radius-small: 8px;
+    --border-radius-medium: 12px;
+    --border-radius-large: 20px;
+    
+    /* Shadows */
+    --shadow-subtle: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 🔧 Modern CSS Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition: all 0.3s ease;
+}
+
+/* Dark Mode Support */
+body.dark-mode {
+    --primary-color: #1a1a2e;
+    --secondary-color: #16213e;
+    --accent-color: #0f3460;
+    --text-primary: #e94560;
+    --text-secondary: #f2f2f2;
+}
+
+body {
+    font-family: var(--font-primary);
+    background: var(--background-gradient);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: var(--spacing-medium);
+    perspective: 1000px;
+}
+
+/* 🚀 Container Styles */
+.container {
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+    position: relative;
+}
+
+.dictionary-wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: var(--border-radius-large);
+    padding: var(--spacing-large);
+    box-shadow: 
+        var(--shadow-medium),
+        0 10px 20px rgba(0, 0, 0, 0.05);
+    transform-style: preserve-3d;
+    transform: translateZ(50px);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Header Styles */
+.dictionary-wrapper header {
+    text-align: center;
+    margin-bottom: var(--spacing-large);
+    position: relative;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+/* Search Section */
+.search-section {
+    display: flex;
+    margin-bottom: var(--spacing-large);
+    position: relative;
+}
+
+#searchInput {
+    flex-grow: 1;
+    padding: 15px var(--spacing-medium);
+    border: 2px solid transparent;
+    border-radius: var(--border-radius-medium) 0 0 var(--border-radius-medium);
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.3);
+}
+
+#searchBtn {
+    padding: 15px var(--spacing-medium);
+    background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+    border: none;
+    color: var(--text-primary);
+    border-radius: 0 var(--border-radius-medium) var(--border-radius-medium) 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-small);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+#searchBtn:hover {
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Result Container */
+.result-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-medium);
+    padding: var(--spacing-medium);
+    min-height: 300px;
+    max-height: 450px;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Feature Buttons */
+.feature-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-small);
+    margin-top: var(--spacing-medium);
+}
+
+.feature-buttons button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--text-primary);
+    padding: var(--spacing-small) var(--spacing-medium);
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-small);
+    transition: all 0.3s ease;
+}
+
+.feature-buttons button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: var(--border-radius-medium);
+    padding: var(--spacing-large);
+    width: 90%;
+    max-width: 500px;
+    max-height: 70vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-medium);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: absolute;
+    top: var(--spacing-medium);
+    right: var(--spacing-medium);
+    z-index: 10;
+}
+
+#themeToggle {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#themeToggle:hover {
+    transform: rotate(180deg);
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: var(--spacing-medium);
+    color: var(--text-secondary);
+}
+
+footer a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--accent-color);
+}
+
+/* Scrollbar Styling */
+.result-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.result-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.result-container::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: var(--border-radius-small);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: var(--spacing-small);
+    }
+
+    .dictionary-wrapper {
+        padding: var(--spacing-medium);
+    }
+
+    .search-section {
+        flex-direction: column;
+    }
+
+    #searchInput, 
+    #searchBtn {
+        width: 100%;
+        border-radius: var(--border-radius-small);
+    }
+
+    #searchBtn {
+        margin-top: var(--spacing-small);
+    }
+
+    .feature-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
+
+
+
+/* Adjust Container and Wrapper Spacing */
+.container {
+    width: 100%;
+    max-width: 700px;  /* Increased width */
+    margin: auto;
+    padding: 10px;  /* Reduced padding */
+}
+
+.dictionary-wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: var(--border-radius-large);
+    padding: 25px;  /* Reduced padding */
+    margin-top: 10px;  /* Added small top margin */
+}
+
+/* Improve Search Input Placeholder */
+#searchInput {
+    color: rgba(255, 255, 255, 0.7);  /* More visible placeholder */
+    font-size: 16px;
+}
+
+#searchInput::placeholder {
+    color: rgba(255, 255, 255, 0.5);  /* Softer placeholder color */
+    opacity: 0.7;
+}
+
+/* Theme Toggle Positioning */
+.theme-toggle {
+    position: absolute;
+    top: 10px;  /* Reduced top spacing */
+    right: 15px;  /* Adjusted right spacing */
+    z-index: 10;
+}
+
+/* Modal Button Styling */
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;  /* Space between buttons */
+}
+
+#clearHistoryBtn,
+#closeHistoryBtn {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#clearHistoryBtn:hover,
+#closeHistoryBtn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+#clearHistoryBtn {
+    background: rgba(255, 107, 107, 0.3);  /* Reddish for clear history */
+}
+
+#clearHistoryBtn:hover {
+    background: rgba(255, 107, 107, 0.5);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 5px;
+    }
+
+    .dictionary-wrapper {
+        padding: 20px;
+        margin-top: 5px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #clearHistoryBtn,
+    #closeHistoryBtn {
+        width: 100%;
+    }
+}
