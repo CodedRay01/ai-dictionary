@@ -1,7 +1,7 @@
 class AIDictionary {
     constructor() {
         // API Configuration
-        this.apiKey = 'AIzaSyAyFzdqzKgObTW4CrSJ2IhmYhAP8AoM8Bs';
+        this.apiKey = 'AIzaSyDpv9Q1I8wRpQbEycl3giatZ3ZkubR5vcs';
         this.apiEndpoint = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=' + this.apiKey;
         
         // Initialize Components
@@ -28,7 +28,7 @@ class AIDictionary {
         });
 
         // Pronunciation Button
-        pronunciationBtn.addEventListener('click', () => alert ("This feature will be avaliable soon..."));
+        pronunciationBtn.addEventListener('click', () => alert("This feaurure will be avaliable soon.\n Regards codedray01 "));
 
         // History Button
         historyBtn.addEventListener('click', () => this.showSearchHistory());
@@ -91,12 +91,7 @@ class AIDictionary {
                 body: JSON.stringify({
                     contents: [{
                         parts: [{
-                            text: `Provide a comprehensive definition for: ${word}. 
-                            Include:
-                            1. Detailed meaning
-                            2. Etymology 
-                            3. Usage examples
-                            Format the response with clear sections and highlights.`
+                            text: `Provide a comprehensive definition for: ${word}`
                         }]
                     }]
                 })
@@ -118,38 +113,15 @@ class AIDictionary {
         }
     }
 
-    // Advanced Text Formatting
+    // Parse Gemini Response
     parseDefinition(data) {
         try {
-            let text = data.candidates[0].content.parts[0].text;
-
-            // Advanced Text Formatting
-            text = this.formatDefinition(text);
-
-            return text;
+            return data.candidates[0].content.parts[0].text || 
+                   'No definition available for this word.';
         } catch (error) {
             console.error('Definition Parsing Error:', error);
             return 'Unable to parse definition';
         }
-    }
-
-    // Comprehensive Text Formatting
-    formatDefinition(text) {
-        // Bold 2-3 word phrases
-        text = text.replace(/\b(\w+\s\w+|\w+\s\w+\s\w+)\b/g, (match) => {
-            return match.includes('*') ? match : `**${match}**`;
-        });
-
-        // Add line breaks for sections
-        text = text.replace(/(1\.|2\.|3\.)/g, '\n\n$1');
-
-        // Convert markdown-like bold to HTML
-        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-
-        // Replace newlines with HTML line breaks
-        text = text.replace(/\n/g, '<br>');
-
-        return text;
     }
 
     // Display Definition
@@ -250,3 +222,4 @@ class SearchHistoryManager {
 document.addEventListener('DOMContentLoaded', () => {
     new AIDictionary();
 });
+            
