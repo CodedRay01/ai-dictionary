@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <!-- Technical SEO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codedray01 AI Dictionary | Advanced Word Definitions</title>
+    
+    <!-- SEO Metadata -->
+    <meta name="description" content="AI-powered dictionary by Codedray01 providing comprehensive word meanings, etymology, and pronunciation">
+    <meta name="keywords" content="dictionary, AI, word definition, Codedray01, language learning, etymology, pronunciation">
+    <meta name="author" content="Codedray01">
+    <link rel="canonical" href="https://codedray01.github.io/ai-dictionary">
+    
+    <!-- Open Graph Protocol -->
+    <meta property="og:title" content="Codedray01 AI Dictionary">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://codedray01.github.io/ai-dictionary">
+    <meta property="og:description" content="Advanced AI-powered dictionary application by Codedray01">
+    <meta property="og:image" content="preview.jpg">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Codedray01 AI Dictionary",
+        "url": "https://codedray01.github.io/ai-dictionary",
+        "description": "AI-powered dictionary with comprehensive word definitions",
+        "applicationCategory": "Dictionary",
+        "operatingSystem": "All"
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="theme-toggle">
+            <button id="themeToggle" aria-label="Toggle Theme">
+                <i class="fas fa-adjust"></i>
+            </button>
+        </div>
+
+        <div class="dictionary-wrapper">
+            <header>
+                <h1>Rayaan' AI Dictionary</h1>
+                <p>Powered by Advanced AI Intelligence</p>
+            </header>
+
+            <div class="search-section">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Enter a word..."
+                    aria-label="Dictionary Search"
+                >
+                <button id="searchBtn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+
+            <div id="resultContainer" class="result-container">
+                <div class="placeholder">
+                    <h2>Discover Word Meanings</h2>
+                    <p>Enter a word to explore its definition</p>
+                </div>
+            </div>
+
+            <div class="feature-buttons">
+                <button id="pronunciationBtn">
+                    <i class="fas fa-volume-up"></i> Pronunciation
+                </button>
+                <button id="historyBtn">
+                    <i class="fas fa-history"></i> Search History
+                </button>
+            </div>
+        </div>
+
+        <div id="historyModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Search History</h2>
+                <ul id="historyList"></ul>
+                <div class="modal-actions">
+                    <button id="clearHistoryBtn">Clear History</button>
+                    <button id="closeHistoryBtn">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                © 2024 
+                <a href="https://github.com/CodedRay01" target="_blank">Codedray01</a>. 
+                All Rights Reserved.
+            </p>
+        </footer>
+    </div>
+
+    <script src="dictionary.js"></script>
+</body>
+</html>
